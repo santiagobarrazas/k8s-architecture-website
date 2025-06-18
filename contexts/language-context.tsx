@@ -103,7 +103,7 @@ const translations = {
     // Footer
     "footer.title": "Interested in collaborating?",
     "footer.description":
-      "This project demonstrates my experience in cloud-native architectures, DevOps, and automation. I'm available for new opportunities and technical challenges.",
+      "This project demonstrates our experience in cloud-native architectures, DevOps, and automation. I'm available for new opportunities and technical challenges.",
     "footer.team.title": "Development Team",
     "footer.team.dev1.name": "Santiago Barraza",
     "footer.team.dev2.name": "Luisa Castaño",
@@ -256,7 +256,7 @@ const translations = {
     // Footer
     "footer.title": "¿Interesado en colaborar?",
     "footer.description":
-      "Este proyecto demuestra mi experiencia en arquitecturas cloud-native, DevOps y automatización. Estoy disponible para nuevas oportunidades y desafíos técnicos.",
+      "Este proyecto demuestra nuestra experiencia en arquitecturas cloud-native, DevOps y automatización. Estoy disponible para nuevas oportunidades y desafíos técnicos.",
     "footer.team.title": "Equipo de Desarrollo",
     "footer.team.dev1.name": "Santiago Barraza",
     "footer.team.dev2.name": "Luisa Castaño",
