@@ -3,16 +3,25 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-})
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "DevOps Portfolio - Arquitectura Escalable en Kubernetes",
-  description:
-    "Despliegue de arquitectura escalable en Kubernetes con enfoque GitOps en AWS con GitHub Actions y ArgoCD",
+  title: "DevOps Portfolio - Cloud Native Architecture",
+  description: "Portfolio showcasing DevOps expertise with Kubernetes, GitOps, CI/CD, and cloud-native technologies",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 }
 
 export default function RootLayout({
@@ -21,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={inter.className}>
-      <body className="antialiased">{children}</body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

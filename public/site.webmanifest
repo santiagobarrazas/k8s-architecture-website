@@ -1,0 +1,26 @@
+{
+  "name": "DevOps Portfolio",
+  "short_name": "DevOps",
+  "description": "Portfolio showcasing DevOps expertise with Kubernetes, GitOps, CI/CD, and cloud-native technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#22d3ee",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+} 
