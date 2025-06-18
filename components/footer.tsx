@@ -119,12 +119,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          <div className="border-t border-gray-800 pt-8">
-            <p className="text-gray-500 text-sm">
-              {t("footer.designed")} <span className="text-cyan-400 font-semibold">Santiago Barraza</span>, 2025
-            </p>
-          </div>
         </div>
       </div>
     </footer>
