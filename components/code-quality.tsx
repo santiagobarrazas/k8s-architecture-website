@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ImagePlaceholder from "./image-placeholder"
+import Image from "next/image"
 import { CheckCircle, Code, Shield } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -93,9 +93,11 @@ export default function CodeQuality() {
             </div>
 
             <div>
-              <ImagePlaceholder
-                description="Imagen del Quality Gate pasado en un Pull Request de GitHub, de la página 96"
-                height="500px"
+              <Image
+                src="/quality-sonarqube.png"
+                alt="Imagen del Quality Gate pasado en un Pull Request de GitHub"
+                width={600}
+                height={500}
                 className="rounded-lg border border-indigo-500/30 shadow-lg shadow-indigo-500/10"
               />
               <div className="mt-6 flex flex-wrap justify-center gap-2">

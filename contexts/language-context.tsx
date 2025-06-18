@@ -124,6 +124,13 @@ const translations = {
     "tooltip.grafana": "Analytics and Monitoring Platform",
     "tooltip.linkerd": "Service Mesh for Kubernetes",
     "tooltip.spring": "Java Application Framework",
+
+    // Image Modal
+    "modal.zoom.out": "Zoom Out",
+    "modal.zoom.in": "Zoom In",
+    "modal.reset": "Reset",
+    "modal.close": "Close",
+    "modal.instructions": "ESC to close • Scroll to zoom • Drag to move",
   },
   es: {
     // Navbar
@@ -235,6 +242,13 @@ const translations = {
     "tooltip.grafana": "Plataforma de Análisis y Monitoreo",
     "tooltip.linkerd": "Service Mesh para Kubernetes",
     "tooltip.spring": "Framework de Aplicaciones Java",
+
+    // Image Modal
+    "modal.zoom.out": "Reducir Zoom",
+    "modal.zoom.in": "Aumentar Zoom",
+    "modal.reset": "Restablecer",
+    "modal.close": "Cerrar",
+    "modal.instructions": "ESC para cerrar • Scroll para zoom • Arrastra para mover",
   },
 }
 

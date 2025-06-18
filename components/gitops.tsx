@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ImagePlaceholder from "./image-placeholder"
+import Image from "next/image"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function GitOps() {
@@ -72,9 +72,11 @@ export default function GitOps() {
                   </div>
                 </div>
               </div>
-              <ImagePlaceholder
-                description="Diagrama del Flujo Automatizado de la página 8"
-                height="300px"
+              <Image
+                src="/gitops-workflow.png"
+                alt="Diagrama del Flujo Automatizado"
+                width={600}
+                height={300}
                 className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10"
               />
             </div>
@@ -113,9 +115,11 @@ export default function GitOps() {
                   </div>
                 </div>
               </div>
-              <ImagePlaceholder
-                description="Diagrama de la relación entre ramas y namespaces de la página 9"
-                height="300px"
+              <Image
+                src="/gitops-branches.png"
+                alt="Diagrama de la relación entre ramas y namespaces"
+                width={600}
+                height={300}
                 className="rounded-lg border border-blue-500/30 shadow-lg shadow-blue-500/10"
               />
             </div>

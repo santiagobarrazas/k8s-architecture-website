@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ImagePlaceholder from "./image-placeholder"
+import Image from "next/image"
 import { BarChart3, Activity, Zap } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -52,9 +52,11 @@ export default function Observability() {
                   <BarChart3 className="w-12 h-12 text-orange-400 mx-auto mb-2" />
                   <h4 className="text-xl font-bold text-orange-400">{t("observability.grafana.title")}</h4>
                 </div>
-                <ImagePlaceholder
-                  description="Dashboard principal de Grafana a nivel de clúster, de la página 77"
-                  height="250px"
+                <Image
+                  src="/observability-grafana.png"
+                  alt="Dashboard principal de Grafana a nivel de clúster"
+                  width={400}
+                  height={250}
                   className="rounded-lg border border-orange-500/30 shadow-lg shadow-orange-500/10"
                 />
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -68,9 +70,11 @@ export default function Observability() {
                   <Activity className="w-12 h-12 text-yellow-400 mx-auto mb-2" />
                   <h4 className="text-xl font-bold text-yellow-400">{t("observability.logs.title")}</h4>
                 </div>
-                <ImagePlaceholder
-                  description="Logs en la interfaz de Kibana, de la página 84"
-                  height="250px"
+                <Image
+                  src="/observability-kibana.png"
+                  alt="Logs en la interfaz de Kibana"
+                  width={400}
+                  height={250}
                   className="rounded-lg border border-yellow-500/30 shadow-lg shadow-yellow-500/10"
                 />
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -84,9 +88,11 @@ export default function Observability() {
                   <Zap className="w-12 h-12 text-green-400 mx-auto mb-2" />
                   <h4 className="text-xl font-bold text-green-400">{t("observability.mesh.title")}</h4>
                 </div>
-                <ImagePlaceholder
-                  description="Topología del service mesh en Linkerd, de la página 52"
-                  height="250px"
+                <Image
+                  src="/observability-linkerd.png"
+                  alt="Topología del service mesh en Linkerd"
+                  width={400}
+                  height={250}
                   className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10"
                 />
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -109,9 +115,11 @@ export default function Observability() {
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="text-center">
                 <h4 className="text-xl font-bold text-pink-400 mb-6">{t("observability.locust.title")}</h4>
-                <ImagePlaceholder
-                  description="Gráficas del reporte de Locust, de la página 88"
-                  height="300px"
+                <Image
+                  src="/observability-locust.png"
+                  alt="Gráficas del reporte de Locust"
+                  width={500}
+                  height={300}
                   className="rounded-lg border border-pink-500/30 shadow-lg shadow-pink-500/10"
                 />
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
@@ -122,9 +130,11 @@ export default function Observability() {
 
               <div className="text-center">
                 <h4 className="text-xl font-bold text-red-400 mb-6">{t("observability.chaos.title")}</h4>
-                <ImagePlaceholder
-                  description="Métrica de latencia en Linkerd durante la prueba de caos, de la página 90"
-                  height="300px"
+                <Image
+                  src="/observability-chaos.png"
+                  alt="Métrica de latencia en Linkerd durante la prueba de caos"
+                  width={500}
+                  height={300}
                   className="rounded-lg border border-red-500/30 shadow-lg shadow-red-500/10"
                 />
                 <div className="mt-4 flex flex-wrap justify-center gap-2">

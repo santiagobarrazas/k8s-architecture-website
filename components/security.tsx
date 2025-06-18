@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import ImagePlaceholder from "./image-placeholder"
+import Image from "next/image"
 import { Shield, Network, Key } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
@@ -48,9 +48,11 @@ export default function Security() {
                 <h3 className="text-xl font-bold text-red-400">{t("security.vuln.title")}</h3>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">{t("security.vuln.description")}</p>
-              <ImagePlaceholder
-                description="Pipeline de Trivy fallando por vulnerabilidades críticas, de la página 56"
-                height="200px"
+              <Image
+                src="/security-trivy.png"
+                alt="Pipeline de Trivy fallando por vulnerabilidades críticas"
+                width={400}
+                height={200}
                 className="rounded-lg border border-red-500/30 shadow-lg shadow-red-500/10"
               />
               <div className="mt-4 flex flex-wrap gap-2">
@@ -68,9 +70,11 @@ export default function Security() {
                 <h3 className="text-xl font-bold text-blue-400">{t("security.network.title")}</h3>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">{t("security.network.description")}</p>
-              <ImagePlaceholder
-                description="Lista de NetworkPolicies en Kubernetes, de la página 44"
-                height="200px"
+              <Image
+                src="/security-network-policies.png"
+                alt="Lista de NetworkPolicies en Kubernetes"
+                width={400}
+                height={200}
                 className="rounded-lg border border-blue-500/30 shadow-lg shadow-blue-500/10"
               />
               <div className="mt-4 flex flex-wrap gap-2">
@@ -88,9 +92,11 @@ export default function Security() {
                 <h3 className="text-xl font-bold text-green-400">{t("security.secrets.title")}</h3>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">{t("security.secrets.description")}</p>
-              <ImagePlaceholder
-                description="Código del CronJob o de un Secret de la página 64"
-                height="200px"
+              <Image
+                src="/security-secrets.png"
+                alt="Código del CronJob o de un Secret"
+                width={400}
+                height={200}
                 className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10"
               />
               <div className="mt-4 flex flex-wrap gap-2">
