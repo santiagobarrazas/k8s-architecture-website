@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   title: "DevOps Portfolio - Arquitectura Escalable en Kubernetes",
   description:
     "Despliegue de arquitectura escalable en Kubernetes con enfoque GitOps en AWS con GitHub Actions y ArgoCD",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

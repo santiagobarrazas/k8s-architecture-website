@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react"
 import ImagePlaceholder from "./image-placeholder"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function GitOps() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,31 +32,24 @@ export default function GitOps() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-              El Flujo GitOps: Automatización y Confianza
+              {t("gitops.title")}
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              El núcleo del proyecto es su pipeline <span className="text-green-400 font-semibold">CI/CD</span> basado
-              en GitOps. Cada push a una rama (dev, stage, master) desencadena un flujo automatizado en
-              <span className="text-blue-400 font-semibold"> GitHub Actions</span> que compila, prueba y empaqueta la
-              aplicación en una imagen Docker. Luego, <span className="text-cyan-400 font-semibold">ArgoCD</span>{" "}
-              detecta los cambios en los manifiestos de Helm y sincroniza automáticamente el clúster, asegurando que el
-              estado en vivo siempre refleje el deseado en Git.
-            </p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t("gitops.description")}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Flujo de Trabajo Automatizado */}
             <div className="space-y-6">
               <div className="text-center lg:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-4">Flujo de Trabajo Automatizado</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-4">{t("gitops.workflow.title")}</h3>
                 <div className="space-y-4 text-gray-300">
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold text-green-400">Push al Repositorio</h4>
-                      <p className="text-sm">Desarrollador hace push a rama dev/stage/master</p>
+                      <h4 className="font-semibold text-green-400">{t("gitops.workflow.step1")}</h4>
+                      <p className="text-sm">{t("gitops.workflow.step1.desc")}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -62,8 +57,8 @@ export default function GitOps() {
                       2
                     </div>
                     <div>
-                      <h4 className="font-semibold text-blue-400">GitHub Actions</h4>
-                      <p className="text-sm">Pipeline CI ejecuta tests, build y push de imagen Docker</p>
+                      <h4 className="font-semibold text-blue-400">{t("gitops.workflow.step2")}</h4>
+                      <p className="text-sm">{t("gitops.workflow.step2.desc")}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -71,8 +66,8 @@ export default function GitOps() {
                       3
                     </div>
                     <div>
-                      <h4 className="font-semibold text-cyan-400">ArgoCD Sync</h4>
-                      <p className="text-sm">ArgoCD detecta cambios y sincroniza el clúster automáticamente</p>
+                      <h4 className="font-semibold text-cyan-400">{t("gitops.workflow.step3")}</h4>
+                      <p className="text-sm">{t("gitops.workflow.step3.desc")}</p>
                     </div>
                   </div>
                 </div>
@@ -87,7 +82,7 @@ export default function GitOps() {
             {/* Relación Ramas y Entornos */}
             <div className="space-y-6">
               <div className="text-center lg:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-4">Relación Ramas y Entornos</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-4">{t("gitops.branches.title")}</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
                     <div className="flex items-center gap-3 mb-2">
@@ -96,7 +91,7 @@ export default function GitOps() {
                       <span className="text-gray-400">→</span>
                       <span className="text-cyan-400">namespace: dev</span>
                     </div>
-                    <p className="text-sm text-gray-400">Entorno de desarrollo para pruebas iniciales</p>
+                    <p className="text-sm text-gray-400">{t("gitops.branches.dev")}</p>
                   </div>
                   <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
                     <div className="flex items-center gap-3 mb-2">
@@ -105,7 +100,7 @@ export default function GitOps() {
                       <span className="text-gray-400">→</span>
                       <span className="text-cyan-400">namespace: stage</span>
                     </div>
-                    <p className="text-sm text-gray-400">Entorno de staging para validación pre-producción</p>
+                    <p className="text-sm text-gray-400">{t("gitops.branches.stage")}</p>
                   </div>
                   <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
                     <div className="flex items-center gap-3 mb-2">
@@ -114,7 +109,7 @@ export default function GitOps() {
                       <span className="text-gray-400">→</span>
                       <span className="text-cyan-400">namespace: master</span>
                     </div>
-                    <p className="text-sm text-gray-400">Entorno de producción con alta disponibilidad</p>
+                    <p className="text-sm text-gray-400">{t("gitops.branches.master")}</p>
                   </div>
                 </div>
               </div>

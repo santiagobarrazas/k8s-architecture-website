@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react"
 import ImagePlaceholder from "./image-placeholder"
 import { BarChart3, Activity, Zap } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Observability() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,28 +33,24 @@ export default function Observability() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Visibilidad Completa y Rendimiento a Escala
+              {t("observability.title")}
             </h2>
           </div>
 
           {/* Monitoreo y Logging */}
           <div className="mb-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-purple-400 mb-8 text-center">Monitoreo y Logging</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-purple-400 mb-8 text-center">
+              {t("observability.monitoring.title")}
+            </h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-12 text-center max-w-4xl mx-auto">
-              Se implementó una pila de observabilidad completa.{" "}
-              <span className="text-orange-400 font-semibold">Prometheus</span> y
-              <span className="text-orange-400 font-semibold"> Grafana</span> para la recolección y visualización de
-              métricas y alertas; el stack <span className="text-yellow-400 font-semibold">ELK</span> (Elasticsearch,
-              Logstash, Kibana) para el logging centralizado; y{" "}
-              <span className="text-green-400 font-semibold">Linkerd</span> para métricas de service mesh y trazabilidad
-              mTLS.
+              {t("observability.monitoring.description")}
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="mb-4">
                   <BarChart3 className="w-12 h-12 text-orange-400 mx-auto mb-2" />
-                  <h4 className="text-xl font-bold text-orange-400">Dashboard de Grafana</h4>
+                  <h4 className="text-xl font-bold text-orange-400">{t("observability.grafana.title")}</h4>
                 </div>
                 <ImagePlaceholder
                   description="Dashboard principal de Grafana a nivel de clúster, de la página 77"
@@ -68,7 +66,7 @@ export default function Observability() {
               <div className="text-center">
                 <div className="mb-4">
                   <Activity className="w-12 h-12 text-yellow-400 mx-auto mb-2" />
-                  <h4 className="text-xl font-bold text-yellow-400">Logs Centralizados</h4>
+                  <h4 className="text-xl font-bold text-yellow-400">{t("observability.logs.title")}</h4>
                 </div>
                 <ImagePlaceholder
                   description="Logs en la interfaz de Kibana, de la página 84"
@@ -84,7 +82,7 @@ export default function Observability() {
               <div className="text-center">
                 <div className="mb-4">
                   <Zap className="w-12 h-12 text-green-400 mx-auto mb-2" />
-                  <h4 className="text-xl font-bold text-green-400">Service Mesh</h4>
+                  <h4 className="text-xl font-bold text-green-400">{t("observability.mesh.title")}</h4>
                 </div>
                 <ImagePlaceholder
                   description="Topología del service mesh en Linkerd, de la página 52"
@@ -101,17 +99,16 @@ export default function Observability() {
 
           {/* Pruebas de Carga y Caos */}
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-pink-400 mb-8 text-center">Pruebas de Carga y Caos</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-pink-400 mb-8 text-center">
+              {t("observability.testing.title")}
+            </h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-12 text-center max-w-4xl mx-auto">
-              El sistema se validó bajo estrés. Se usó <span className="text-pink-400 font-semibold">Locust</span> para
-              simular miles de peticiones y <span className="text-red-400 font-semibold">Chaos-Mesh</span> para inyectar
-              fallos controlados (como latencia), probando la resiliencia y capacidad de auto-sanación de la
-              arquitectura.
+              {t("observability.testing.description")}
             </p>
 
             <div className="grid lg:grid-cols-2 gap-12">
               <div className="text-center">
-                <h4 className="text-xl font-bold text-pink-400 mb-6">Pruebas de Carga con Locust</h4>
+                <h4 className="text-xl font-bold text-pink-400 mb-6">{t("observability.locust.title")}</h4>
                 <ImagePlaceholder
                   description="Gráficas del reporte de Locust, de la página 88"
                   height="300px"
@@ -124,7 +121,7 @@ export default function Observability() {
               </div>
 
               <div className="text-center">
-                <h4 className="text-xl font-bold text-red-400 mb-6">Ingeniería del Caos</h4>
+                <h4 className="text-xl font-bold text-red-400 mb-6">{t("observability.chaos.title")}</h4>
                 <ImagePlaceholder
                   description="Métrica de latencia en Linkerd durante la prueba de caos, de la página 90"
                   height="300px"

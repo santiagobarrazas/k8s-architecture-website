@@ -1,15 +1,17 @@
+"use client"
+
 import { Github, Linkedin, Mail } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-cyan-400 mb-6">¿Interesado en colaborar?</h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Este proyecto demuestra mi experiencia en arquitecturas cloud-native, DevOps y automatización. Estoy
-            disponible para nuevas oportunidades y desafíos técnicos.
-          </p>
+          <h3 className="text-2xl font-bold text-cyan-400 mb-6">{t("footer.title")}</h3>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">{t("footer.description")}</p>
 
           <div className="flex justify-center gap-6 mb-8">
             <a
@@ -41,9 +43,9 @@ export default function Footer() {
 
           <div className="border-t border-gray-800 pt-8">
             <p className="text-gray-500 text-sm">
-              Diseñado y desarrollado por <span className="text-cyan-400 font-semibold">[Tu Nombre]</span>, 2025
+              {t("footer.designed")} <span className="text-cyan-400 font-semibold">[Tu Nombre]</span>, 2025
             </p>
-            <p className="text-gray-600 text-xs mt-2">Construido con Next.js, Tailwind CSS y mucha ☕</p>
+            <p className="text-gray-600 text-xs mt-2">{t("footer.built")}</p>
           </div>
         </div>
       </div>

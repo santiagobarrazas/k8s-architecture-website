@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react"
 import ImagePlaceholder from "./image-placeholder"
 import { CheckCircle, Code, Shield } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function CodeQuality() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,13 +33,9 @@ export default function CodeQuality() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Garantizando la Calidad del Código
+              {t("quality.title")}
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Se integró <span className="text-indigo-400 font-semibold">SonarQube</span> en el pipeline como un Quality
-              Gate. Cada Pull Request es analizado automáticamente para detectar bugs, vulnerabilidades y code smells,
-              asegurando que solo el código que cumple con los estándares de calidad se integre a la rama principal.
-            </p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t("quality.description")}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -48,11 +46,8 @@ export default function CodeQuality() {
                     <CheckCircle className="w-6 h-6 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-green-400 mb-2">Quality Gate Automático</h3>
-                    <p className="text-gray-300">
-                      Cada PR debe pasar el Quality Gate de SonarQube antes de poder ser mergeado, garantizando
-                      estándares de calidad consistentes.
-                    </p>
+                    <h3 className="text-xl font-bold text-green-400 mb-2">{t("quality.gate.title")}</h3>
+                    <p className="text-gray-300">{t("quality.gate.description")}</p>
                   </div>
                 </div>
 
@@ -61,11 +56,8 @@ export default function CodeQuality() {
                     <Code className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-blue-400 mb-2">Análisis de Código</h3>
-                    <p className="text-gray-300">
-                      Detección automática de bugs, code smells, duplicación de código y métricas de complejidad
-                      ciclomática para mantener el código limpio.
-                    </p>
+                    <h3 className="text-xl font-bold text-blue-400 mb-2">{t("quality.analysis.title")}</h3>
+                    <p className="text-gray-300">{t("quality.analysis.description")}</p>
                   </div>
                 </div>
 
@@ -74,11 +66,8 @@ export default function CodeQuality() {
                     <Shield className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-purple-400 mb-2">Seguridad del Código</h3>
-                    <p className="text-gray-300">
-                      Identificación de vulnerabilidades de seguridad en el código fuente, incluyendo inyección SQL, XSS
-                      y otras amenazas comunes.
-                    </p>
+                    <h3 className="text-xl font-bold text-purple-400 mb-2">{t("quality.security.title")}</h3>
+                    <p className="text-gray-300">{t("quality.security.description")}</p>
                   </div>
                 </div>
               </div>

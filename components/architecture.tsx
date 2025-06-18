@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react"
 import ImagePlaceholder from "./image-placeholder"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Architecture() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,7 +32,7 @@ export default function Architecture() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
-              Arquitectura Holística: De la Nube al Contenedor
+              {t("arch.title")}
             </h2>
           </div>
 
@@ -38,17 +40,8 @@ export default function Architecture() {
           <div className="mb-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 mb-6">
-                  Infraestructura como Código (IaC) en AWS
-                </h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  La base del proyecto se aprovisionó en AWS usando{" "}
-                  <span className="text-cyan-400 font-semibold">Terraform</span>, garantizando un entorno replicable y
-                  versionado. Se configuró un estado remoto con S3 y DynamoDB para la colaboración segura. Los
-                  componentes clave incluyen una VPC, subredes, un clúster de
-                  <span className="text-green-400 font-semibold"> EKS</span> y un Network Load Balancer para gestionar
-                  el tráfico.
-                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 mb-6">{t("arch.iac.title")}</h3>
+                <p className="text-lg text-gray-300 leading-relaxed mb-6">{t("arch.iac.description")}</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm">Terraform</span>
                   <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">AWS EKS</span>
@@ -70,16 +63,8 @@ export default function Architecture() {
           <div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="lg:order-2">
-                <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-6">Arquitectura en Kubernetes</h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  Dentro de <span className="text-green-400 font-semibold">EKS</span>, la aplicación se organiza en
-                  namespaces (dev, stage, master) para aislar entornos. Se utiliza{" "}
-                  <span className="text-cyan-400 font-semibold">Ingress-NGINX</span> para enrutar el tráfico,{" "}
-                  <span className="text-yellow-400 font-semibold">Cert-Manager</span> para certificados TLS automáticos
-                  y<span className="text-red-400 font-semibold"> NetworkPolicies</span> para una comunicación segura
-                  entre microservicios. La configuración se centraliza usando ConfigMaps y los datos sensibles con
-                  Secrets.
-                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-6">{t("arch.k8s.title")}</h3>
+                <p className="text-lg text-gray-300 leading-relaxed mb-6">{t("arch.k8s.description")}</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Namespaces</span>
                   <span className="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm">Ingress-NGINX</span>

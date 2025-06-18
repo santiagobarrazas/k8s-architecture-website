@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react"
 import ImagePlaceholder from "./image-placeholder"
 import { Shield, Network, Key } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function Security() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,12 +33,9 @@ export default function Security() {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-              Fortificando la Arquitectura
+              {t("security.title")}
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              La seguridad no fue un añadido, sino un pilar central. Se implementaron múltiples capas para proteger el
-              sistema.
-            </p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t("security.description")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -46,13 +45,9 @@ export default function Security() {
                 <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                   <Shield className="w-6 h-6 text-red-400" />
                 </div>
-                <h3 className="text-xl font-bold text-red-400">Análisis de Vulnerabilidades</h3>
+                <h3 className="text-xl font-bold text-red-400">{t("security.vuln.title")}</h3>
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Integración de <span className="text-red-400 font-semibold">Trivy</span> en el pipeline de CI para
-                escanear imágenes Docker en busca de vulnerabilidades antes del despliegue, bloqueando compilaciones
-                inseguras.
-              </p>
+              <p className="text-gray-300 mb-6 leading-relaxed">{t("security.vuln.description")}</p>
               <ImagePlaceholder
                 description="Pipeline de Trivy fallando por vulnerabilidades críticas, de la página 56"
                 height="200px"
@@ -70,13 +65,9 @@ export default function Security() {
                 <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
                   <Network className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-bold text-blue-400">Aislamiento de Red</h3>
+                <h3 className="text-xl font-bold text-blue-400">{t("security.network.title")}</h3>
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Uso de <span className="text-blue-400 font-semibold">Calico</span> para implementar NetworkPolicies que
-                restringen la comunicación entre pods al mínimo necesario, reduciendo drásticamente la superficie de
-                ataque.
-              </p>
+              <p className="text-gray-300 mb-6 leading-relaxed">{t("security.network.description")}</p>
               <ImagePlaceholder
                 description="Lista de NetworkPolicies en Kubernetes, de la página 44"
                 height="200px"
@@ -94,14 +85,9 @@ export default function Security() {
                 <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
                   <Key className="w-6 h-6 text-green-400" />
                 </div>
-                <h3 className="text-xl font-bold text-green-400">Gestión de Secretos</h3>
+                <h3 className="text-xl font-bold text-green-400">{t("security.secrets.title")}</h3>
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Implementación de rotación automática de secretos con{" "}
-                <span className="text-green-400 font-semibold">CronJobs</span> y ServiceAccounts con privilegios mínimos
-                (<span className="text-cyan-400 font-semibold">RBAC</span>) para manejar credenciales de forma segura y
-                dinámica.
-              </p>
+              <p className="text-gray-300 mb-6 leading-relaxed">{t("security.secrets.description")}</p>
               <ImagePlaceholder
                 description="Código del CronJob o de un Secret de la página 64"
                 height="200px"

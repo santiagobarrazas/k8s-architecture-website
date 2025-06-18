@@ -9,6 +9,7 @@ import Security from "@/components/security"
 import Observability from "@/components/observability"
 import CodeQuality from "@/components/code-quality"
 import Footer from "@/components/footer"
+import { LanguageProvider } from "@/contexts/language-context"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -35,17 +36,19 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="bg-gray-900 text-gray-100 min-h-screen">
-      <Navbar activeSection={activeSection} />
-      <main>
-        <Hero />
-        <Architecture />
-        <GitOps />
-        <Security />
-        <Observability />
-        <CodeQuality />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="bg-gray-900 text-gray-100 min-h-screen">
+        <Navbar activeSection={activeSection} />
+        <main>
+          <Hero />
+          <Architecture />
+          <GitOps />
+          <Security />
+          <Observability />
+          <CodeQuality />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   )
 }

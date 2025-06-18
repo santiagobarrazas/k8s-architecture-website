@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
+import LanguageToggle from "./language-toggle"
 
 interface NavbarProps {
   activeSection: string
@@ -19,13 +21,15 @@ export default function Navbar({ activeSection }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const { t } = useLanguage()
+
   const navItems = [
-    { id: "hero", label: "Inicio" },
-    { id: "architecture", label: "Arquitectura" },
-    { id: "gitops", label: "GitOps" },
-    { id: "security", label: "Seguridad" },
-    { id: "observability", label: "Observabilidad" },
-    { id: "code-quality", label: "Calidad" },
+    { id: "hero", label: t("nav.home") },
+    { id: "architecture", label: t("nav.architecture") },
+    { id: "gitops", label: t("nav.gitops") },
+    { id: "security", label: t("nav.security") },
+    { id: "observability", label: t("nav.observability") },
+    { id: "code-quality", label: t("nav.quality") },
   ]
 
   const scrollToSection = (sectionId: string) => {
@@ -64,6 +68,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   {item.label}
                 </button>
               ))}
+              <LanguageToggle />
             </div>
           </div>
 
@@ -92,6 +97,9 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   {item.label}
                 </button>
               ))}
+              <div className="px-3 py-2">
+                <LanguageToggle />
+              </div>
             </div>
           </div>
         )}

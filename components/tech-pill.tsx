@@ -1,17 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useLanguage } from "@/contexts/language-context"
+import TechIcon from "./tech-icons"
 
 interface TechPillProps {
   name: string
-  icon: string
-  tooltip?: string
+  tooltipKey?: string
   delay?: number
 }
 
-export default function TechPill({ name, icon, tooltip, delay = 0 }: TechPillProps) {
+export default function TechPill({ name, tooltipKey, delay = 0 }: TechPillProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,13 +31,13 @@ export default function TechPill({ name, icon, tooltip, delay = 0 }: TechPillPro
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
-        <span className="text-lg">{icon}</span>
+        <TechIcon name={name} className="w-4 h-4" />
         <span>{name}</span>
       </div>
 
-      {tooltip && showTooltip && (
+      {tooltipKey && showTooltip && (
         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-cyan-400 text-xs rounded-lg border border-cyan-500/30 whitespace-nowrap z-10">
-          {tooltip}
+          {t(tooltipKey)}
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
         </div>
       )}
