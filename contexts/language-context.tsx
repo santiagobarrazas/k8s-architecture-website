@@ -104,7 +104,6 @@ const translations = {
     "footer.title": "Interested in collaborating?",
     "footer.description":
       "This project demonstrates my experience in cloud-native architectures, DevOps, and automation. I'm available for new opportunities and technical challenges.",
-    "footer.designed": "Designed and developed by",
     "footer.team.title": "Development Team",
     "footer.team.dev1.name": "Santiago Barraza",
     "footer.team.dev2.name": "Luisa Castaño",
@@ -258,9 +257,8 @@ const translations = {
     "footer.title": "¿Interesado en colaborar?",
     "footer.description":
       "Este proyecto demuestra mi experiencia en arquitecturas cloud-native, DevOps y automatización. Estoy disponible para nuevas oportunidades y desafíos técnicos.",
-    "footer.designed": "Diseñado y desarrollado por",
     "footer.team.title": "Equipo de Desarrollo",
-    "footer.team.dev1.name": "Santiago Barrazas",
+    "footer.team.dev1.name": "Santiago Barraza",
     "footer.team.dev2.name": "Luisa Castaño",
     "footer.team.dev3.name": "Juan Yustes",
 
