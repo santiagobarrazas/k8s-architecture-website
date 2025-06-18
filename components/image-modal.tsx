@@ -18,7 +18,6 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
-  const [imageSize, setImageSize] = useState({ width: 0, height: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
   const { t } = useLanguage()
 
@@ -133,12 +132,6 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
     }
   }
 
-  // Handle image load to get actual dimensions
-  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget
-    setImageSize({ width: img.naturalWidth, height: img.naturalHeight })
-  }
-
   // Cerrar modal con Escape
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -237,7 +230,6 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
               quality={100}
               priority
               draggable={false}
-              onLoad={handleImageLoad}
               className="max-w-full max-h-[80vh] object-contain"
             />
           </div>
