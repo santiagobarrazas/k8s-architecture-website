@@ -90,6 +90,9 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
     }
   }, [isOpen, onClose])
 
+  // Check if image is SVG to apply white background
+  const isSvg = src.toLowerCase().endsWith('.svg')
+
   if (!isOpen) return null
 
   return (
@@ -155,6 +158,7 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
               transformOrigin: 'center',
               transition: isDragging ? 'none' : 'transform 0.2s ease-out'
             }}
+            className={isSvg ? "bg-white rounded-lg" : ""}
           >
             <Image
               src={src}
