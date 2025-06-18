@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import { X, ZoomIn, ZoomOut, RotateCcw } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
@@ -18,6 +18,8 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [imageSize, setImageSize] = useState({ width: 0, height: 0 })
+  const containerRef = useRef<HTMLDivElement>(null)
   const { t } = useLanguage()
 
   // Reset zoom and position when modal opens
@@ -28,12 +30,71 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
     }
   }, [isOpen])
 
+  // Recalculate boundaries when zoom changes
+  useEffect(() => {
+    if (zoom > 1) {
+      setPosition(prev => constrainPosition(prev))
+    }
+  }, [zoom])
+
+  // Calculate boundaries to prevent image from going outside viewport
+  const getBoundaries = () => {
+    if (!containerRef.current) return { minX: 0, maxX: 0, minY: 0, maxY: 0 }
+    
+    const container = containerRef.current.getBoundingClientRect()
+    const containerWidth = container.width
+    const containerHeight = container.height
+    
+    // Get the actual displayed image size (after object-contain scaling)
+    const imageElement = containerRef.current.querySelector('img')
+    if (!imageElement) return { minX: 0, maxX: 0, minY: 0, maxY: 0 }
+    
+    const displayedWidth = imageElement.offsetWidth
+    const displayedHeight = imageElement.offsetHeight
+    
+    // Calculate scaled dimensions
+    const scaledWidth = displayedWidth * zoom
+    const scaledHeight = displayedHeight * zoom
+    
+    // Calculate boundaries
+    // When image is smaller than container, it should stay centered
+    // When image is larger than container, it should not go beyond edges
+    const minX = Math.min(0, containerWidth - scaledWidth)
+    const maxX = Math.max(0, scaledWidth - containerWidth)
+    const minY = Math.min(0, containerHeight - scaledHeight)
+    const maxY = Math.max(0, scaledHeight - containerHeight)
+    
+    return { minX, maxX, minY, maxY }
+  }
+
+  // Constrain position within boundaries
+  const constrainPosition = (pos: { x: number, y: number }) => {
+    const { minX, maxX, minY, maxY } = getBoundaries()
+    
+    return {
+      x: Math.min(Math.max(pos.x, -maxX), -minX),
+      y: Math.min(Math.max(pos.y, -maxY), -minY)
+    }
+  }
+
   const handleZoomIn = () => {
-    setZoom(prev => Math.min(prev * 1.5, 5))
+    const newZoom = Math.min(zoom * 1.5, 5)
+    setZoom(newZoom)
+    
+    // Adjust position to keep image centered when zooming
+    setTimeout(() => {
+      setPosition(prev => constrainPosition(prev))
+    }, 50)
   }
 
   const handleZoomOut = () => {
-    setZoom(prev => Math.max(prev / 1.5, 0.5))
+    const newZoom = Math.max(zoom / 1.5, 0.5)
+    setZoom(newZoom)
+    
+    // Adjust position to keep image centered when zooming
+    setTimeout(() => {
+      setPosition(prev => constrainPosition(prev))
+    }, 50)
   }
 
   const handleReset = () => {
@@ -50,10 +111,11 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDragging && zoom > 1) {
-      setPosition({
+      const newPosition = {
         x: e.clientX - dragStart.x,
         y: e.clientY - dragStart.y,
-      })
+      }
+      setPosition(constrainPosition(newPosition))
     }
   }
 
@@ -69,6 +131,12 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
     } else {
       handleZoomOut()
     }
+  }
+
+  // Handle image load to get actual dimensions
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget
+    setImageSize({ width: img.naturalWidth, height: img.naturalHeight })
   }
 
   // Cerrar modal con Escape
@@ -96,7 +164,7 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="relative max-w-7xl max-h-full">
         {/* Barra de herramientas superior */}
         <div className="absolute -top-16 left-0 right-0 flex items-center justify-between">
@@ -145,6 +213,7 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
 
         {/* Contenedor de imagen con zoom */}
         <div 
+          ref={containerRef}
           className="relative overflow-hidden rounded-lg cursor-grab active:cursor-grabbing"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -163,11 +232,13 @@ export default function ImageModal({ src, alt, title, isOpen, onClose }: ImageMo
             <Image
               src={src}
               alt={alt}
-              width={1200}
-              height={800}
-              className="max-w-full max-h-[80vh] object-contain"
+              width={2000}
+              height={1500}
+              quality={100}
               priority
               draggable={false}
+              onLoad={handleImageLoad}
+              className="max-w-full max-h-[80vh] object-contain"
             />
           </div>
         </div>

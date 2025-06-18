@@ -46,7 +46,7 @@ export default function Security() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-title bg-gradient-to-r from-red-400 to-orange-400">
                 {t("security.title")}
               </h2>
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t("security.description")}</p>
@@ -65,11 +65,13 @@ export default function Security() {
                 <div className="relative group">
                   <Image
                     src="/security-trivy.png"
-                    alt="Pipeline de Trivy fallando por vulnerabilidades críticas"
+                    alt={t("image.security.trivy")}
                     width={400}
                     height={200}
-                    className="rounded-lg border border-red-500/30 shadow-lg shadow-red-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => openModal("/security-trivy.png", "Pipeline de Trivy fallando por vulnerabilidades críticas")}
+                    quality={95}
+                    priority={false}
+                    className="rounded-lg border border-red-500/30 shadow-lg shadow-red-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                    onClick={() => openModal("/security-trivy.png", t("image.security.trivy"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -95,11 +97,13 @@ export default function Security() {
                 <div className="relative group">
                   <Image
                     src="/security-network-policies.png"
-                    alt="Lista de NetworkPolicies en Kubernetes"
+                    alt={t("image.security.network")}
                     width={400}
                     height={200}
-                    className="rounded-lg border border-blue-500/30 shadow-lg shadow-blue-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => openModal("/security-network-policies.png", "Lista de NetworkPolicies en Kubernetes")}
+                    quality={95}
+                    priority={false}
+                    className="rounded-lg border border-blue-500/30 shadow-lg shadow-blue-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                    onClick={() => openModal("/security-network-policies.png", t("image.security.network"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -125,11 +129,13 @@ export default function Security() {
                 <div className="relative group">
                   <Image
                     src="/security-secrets.png"
-                    alt="Código del CronJob o de un Secret"
+                    alt={t("image.security.secrets")}
                     width={400}
                     height={200}
-                    className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => openModal("/security-secrets.png", "Código del CronJob o de un Secret")}
+                    quality={95}
+                    priority={false}
+                    className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                    onClick={() => openModal("/security-secrets.png", t("image.security.secrets"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">

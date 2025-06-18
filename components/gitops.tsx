@@ -46,7 +46,7 @@ export default function GitOps() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-title bg-gradient-to-r from-green-400 to-blue-400">
                 {t("gitops.title")}
               </h2>
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t("gitops.description")}</p>
@@ -90,11 +90,11 @@ export default function GitOps() {
                 <div className="relative group">
                   <Image
                     src="/gitops-workflow.svg"
-                    alt="Diagrama del Flujo Automatizado"
-                    width={600}
+                    alt={t("image.gitops.workflow")}
+                    width={500}
                     height={300}
                     className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 bg-white"
-                    onClick={() => openModal("/gitops-workflow.svg", "Diagrama del Flujo Automatizado")}
+                    onClick={() => openModal("/gitops-workflow.svg", t("image.gitops.workflow"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -141,11 +141,11 @@ export default function GitOps() {
                 <div className="relative group">
                   <Image
                     src="/gitops-branches.svg"
-                    alt="Diagrama de la relación entre ramas y namespaces"
-                    width={600}
+                    alt={t("image.gitops.branches")}
+                    width={500}
                     height={300}
                     className="rounded-lg border border-blue-500/30 shadow-lg shadow-blue-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 bg-white"
-                    onClick={() => openModal("/gitops-branches.svg", "Diagrama de la relación entre ramas y namespaces")}
+                    onClick={() => openModal("/gitops-branches.svg", t("image.gitops.branches"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">

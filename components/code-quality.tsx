@@ -46,7 +46,7 @@ export default function CodeQuality() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-title bg-gradient-to-r from-indigo-400 to-purple-400">
                 {t("quality.title")}
               </h2>
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">{t("quality.description")}</p>
@@ -110,11 +110,13 @@ export default function CodeQuality() {
                 <div className="relative group">
                   <Image
                     src="/quality-sonarqube.png"
-                    alt="Imagen del Quality Gate pasado en un Pull Request de GitHub"
+                    alt={t("image.quality.sonarqube")}
                     width={600}
-                    height={500}
-                    className="rounded-lg border border-indigo-500/30 shadow-lg shadow-indigo-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => openModal("/quality-sonarqube.png", "Imagen del Quality Gate pasado en un Pull Request de GitHub")}
+                    height={400}
+                    quality={95}
+                    priority={false}
+                    className="rounded-lg border border-indigo-500/30 shadow-lg shadow-indigo-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                    onClick={() => openModal("/quality-sonarqube.png", t("image.quality.sonarqube"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">

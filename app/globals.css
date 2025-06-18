@@ -88,6 +88,16 @@ a:focus {
   outline-offset: 2px;
 }
 
+/* Fix for gradient titles getting cut off */
+.gradient-title {
+  line-height: 1.2;
+  padding-bottom: 0.25rem;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Loading animation for images */
 @keyframes pulse {
   0%,

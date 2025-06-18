@@ -8,6 +8,7 @@ import GitOps from "@/components/gitops"
 import Security from "@/components/security"
 import Observability from "@/components/observability"
 import CodeQuality from "@/components/code-quality"
+import Documentation from "@/components/documentation"
 import Footer from "@/components/footer"
 import { LanguageProvider } from "@/contexts/language-context"
 
@@ -16,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "architecture", "gitops", "security", "observability", "code-quality"]
+      const sections = ["hero", "architecture", "gitops", "security", "observability", "code-quality", "documentation"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -46,6 +47,7 @@ export default function Home() {
           <Security />
           <Observability />
           <CodeQuality />
+          <Documentation />
         </main>
         <Footer />
       </div>

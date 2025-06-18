@@ -33,7 +33,7 @@ export default function Hero() {
         <div
           className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 gradient-title bg-gradient-to-r from-cyan-400 to-green-400">
             {t("hero.title")}
           </h1>
 

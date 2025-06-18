@@ -30,6 +30,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
     { id: "security", label: t("nav.security") },
     { id: "observability", label: t("nav.observability") },
     { id: "code-quality", label: t("nav.quality") },
+    { id: "documentation", label: t("nav.documentation") },
   ]
 
   const scrollToSection = (sectionId: string) => {

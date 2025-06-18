@@ -46,7 +46,7 @@ export default function Architecture() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-title bg-gradient-to-r from-cyan-400 to-green-400">
                 {t("arch.title")}
               </h2>
             </div>
@@ -67,11 +67,11 @@ export default function Architecture() {
                 <div className="relative group">
                   <Image
                     src="/architecture-infrastructure.svg"
-                    alt="Arquitectura de Infraestructura en la Nube"
+                    alt={t("image.architecture.infrastructure")}
                     width={600}
                     height={400}
-                    className="rounded-lg border border-cyan-500/30 shadow-lg shadow-cyan-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => openModal("/architecture-infrastructure.svg", "Arquitectura de Infraestructura en la Nube")}
+                    className="rounded-lg border border-cyan-500/30 shadow-lg shadow-cyan-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 bg-white"
+                    onClick={() => openModal("/architecture-infrastructure.svg", t("image.architecture.infrastructure"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -98,11 +98,11 @@ export default function Architecture() {
                 <div className="lg:order-1 relative group">
                   <Image
                     src="/architecture-kubernetes.svg"
-                    alt="Arquitectura de Kubernetes"
+                    alt={t("image.architecture.kubernetes")}
                     width={600}
                     height={400}
-                    className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                    onClick={() => openModal("/architecture-kubernetes.svg", "Arquitectura de Kubernetes")}
+                    className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 bg-white"
+                    onClick={() => openModal("/architecture-kubernetes.svg", t("image.architecture.kubernetes"))}
                   />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">

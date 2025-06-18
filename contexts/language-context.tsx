@@ -22,6 +22,7 @@ const translations = {
     "nav.security": "Security",
     "nav.observability": "Observability",
     "nav.quality": "Quality",
+    "nav.documentation": "Documentation",
 
     // Hero Section
     "hero.title": "Scalable Architecture Deployment on Kubernetes",
@@ -104,7 +105,10 @@ const translations = {
     "footer.description":
       "This project demonstrates my experience in cloud-native architectures, DevOps, and automation. I'm available for new opportunities and technical challenges.",
     "footer.designed": "Designed and developed by",
-    "footer.built": "Built with Next.js, Tailwind CSS and lots of ☕",
+    "footer.team.title": "Development Team",
+    "footer.team.dev1.name": "Santiago Barraza",
+    "footer.team.dev2.name": "Luisa Castaño",
+    "footer.team.dev3.name": "Juan Yustes",
 
     // Tech tooltips
     "tooltip.eks": "Elastic Kubernetes Service",
@@ -130,7 +134,39 @@ const translations = {
     "modal.zoom.in": "Zoom In",
     "modal.reset": "Reset",
     "modal.close": "Close",
-    "modal.instructions": "ESC to close • Scroll to zoom • Drag to move",
+    "modal.instructions": "Use mouse wheel to zoom, drag to pan, or use the controls above",
+
+    // Documentation Section
+    "documentation.title": "Documentation & Resources",
+    "documentation.description": "Access the complete documentation, video explanations, and source code repositories.",
+    "documentation.pdf.title": "Complete Documentation",
+    "documentation.pdf.description": "Download the full technical documentation in PDF format with detailed explanations of the architecture, implementation, and deployment process.",
+    "documentation.pdf.button": "Download PDF",
+    "documentation.video.title": "Video Explanation",
+    "documentation.video.description": "Watch a comprehensive video explanation of the project in Spanish, covering all aspects from architecture to deployment.",
+    "documentation.video.button": "Watch Video",
+    "documentation.video.note": "Video in Spanish",
+    "documentation.github.title": "Source Code",
+    "documentation.github.description": "Explore the complete source code, including infrastructure as code, CI/CD pipelines, and application repositories.",
+    "documentation.github.button": "View Repositories",
+    "documentation.presentation.title": "Project Presentation",
+    "documentation.presentation.description": "Download the project presentation in PDF format with a comprehensive summary of the architecture, technologies, and implementation highlights.",
+    "documentation.presentation.button": "Download Presentation",
+
+    // Image titles
+    "image.security.trivy": "Pipeline de Trivy Fallando por Vulnerabilidades Críticas",
+    "image.security.network": "Lista de NetworkPolicies en Kubernetes",
+    "image.security.secrets": "Código del CronJob o Configuración de Secret",
+    "image.observability.grafana": "Dashboard Principal de Grafana a Nivel de Clúster",
+    "image.observability.kibana": "Logs en la Interfaz de Kibana",
+    "image.observability.linkerd": "Topología del Service Mesh en Linkerd",
+    "image.observability.locust": "Gráficas del Reporte de Locust",
+    "image.observability.chaos": "Métrica de Latencia en Linkerd Durante la Prueba de Caos",
+    "image.quality.sonarqube": "Interfaz de SonarQube con Análisis de Código",
+    "image.architecture.infrastructure": "Arquitectura de Infraestructura",
+    "image.architecture.kubernetes": "Arquitectura de Kubernetes",
+    "image.gitops.workflow": "Flujo de Trabajo GitOps Automatizado",
+    "image.gitops.branches": "Relación entre Ramas y Entornos",
   },
   es: {
     // Navbar
@@ -140,6 +176,7 @@ const translations = {
     "nav.security": "Seguridad",
     "nav.observability": "Observabilidad",
     "nav.quality": "Calidad",
+    "nav.documentation": "Documentación",
 
     // Hero Section
     "hero.title": "Despliegue de Arquitectura Escalable en Kubernetes",
@@ -222,7 +259,10 @@ const translations = {
     "footer.description":
       "Este proyecto demuestra mi experiencia en arquitecturas cloud-native, DevOps y automatización. Estoy disponible para nuevas oportunidades y desafíos técnicos.",
     "footer.designed": "Diseñado y desarrollado por",
-    "footer.built": "Construido con Next.js, Tailwind CSS y mucha ☕",
+    "footer.team.title": "Equipo de Desarrollo",
+    "footer.team.dev1.name": "Santiago Barrazas",
+    "footer.team.dev2.name": "Luisa Castaño",
+    "footer.team.dev3.name": "Juan Yustes",
 
     // Tech tooltips
     "tooltip.eks": "Elastic Kubernetes Service",
@@ -249,6 +289,38 @@ const translations = {
     "modal.reset": "Restablecer",
     "modal.close": "Cerrar",
     "modal.instructions": "ESC para cerrar • Scroll para zoom • Arrastra para mover",
+
+    // Documentation Section
+    "documentation.title": "Documentación y Recursos",
+    "documentation.description": "Acceda a la documentación completa, explicaciones en vídeo y repositorios de código fuente.",
+    "documentation.pdf.title": "Documentación Completa",
+    "documentation.pdf.description": "Descargue la documentación técnica completa en formato PDF con explicaciones detalladas del proceso de arquitectura, implementación y despliegue.",
+    "documentation.pdf.button": "Descargar PDF",
+    "documentation.video.title": "Explicación en Vídeo",
+    "documentation.video.description": "Vea una explicación completa en vídeo del proyecto en español, cubriendo todos los aspectos desde la arquitectura hasta el despliegue.",
+    "documentation.video.button": "Ver Vídeo",
+    "documentation.video.note": "Vídeo en español",
+    "documentation.github.title": "Código Fuente",
+    "documentation.github.description": "Explore el código fuente completo, incluyendo código como código, pipelines CI/CD y repositorios de aplicaciones.",
+    "documentation.github.button": "Ver Repositorios",
+    "documentation.presentation.title": "Presentación del Proyecto",
+    "documentation.presentation.description": "Descargue la presentación del proyecto en formato PDF con un resumen completo del proceso de arquitectura, tecnologías y aspectos destacados de la implementación.",
+    "documentation.presentation.button": "Descargar Presentación",
+
+    // Image titles
+    "image.security.trivy": "Pipeline de Trivy Fallando por Vulnerabilidades Críticas",
+    "image.security.network": "Lista de NetworkPolicies en Kubernetes",
+    "image.security.secrets": "Código del CronJob o Configuración de Secret",
+    "image.observability.grafana": "Dashboard Principal de Grafana a Nivel de Clúster",
+    "image.observability.kibana": "Logs en la Interfaz de Kibana",
+    "image.observability.linkerd": "Topología del Service Mesh en Linkerd",
+    "image.observability.locust": "Gráficas del Reporte de Locust",
+    "image.observability.chaos": "Métrica de Latencia en Linkerd Durante la Prueba de Caos",
+    "image.quality.sonarqube": "Interfaz de SonarQube con Análisis de Código",
+    "image.architecture.infrastructure": "Arquitectura de Infraestructura",
+    "image.architecture.kubernetes": "Arquitectura de Kubernetes",
+    "image.gitops.workflow": "Flujo de Trabajo GitOps Automatizado",
+    "image.gitops.branches": "Relación entre Ramas y Entornos",
   },
 }
 

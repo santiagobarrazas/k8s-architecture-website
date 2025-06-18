@@ -46,7 +46,7 @@ export default function Observability() {
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-title bg-gradient-to-r from-purple-400 to-pink-400">
                 {t("observability.title")}
               </h2>
             </div>
@@ -69,11 +69,13 @@ export default function Observability() {
                   <div className="relative group">
                     <Image
                       src="/observability-grafana.png"
-                      alt="Dashboard principal de Grafana a nivel de clúster"
+                      alt={t("image.observability.grafana")}
                       width={400}
                       height={250}
-                      className="rounded-lg border border-orange-500/30 shadow-lg shadow-orange-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                      onClick={() => openModal("/observability-grafana.png", "Dashboard principal de Grafana a nivel de clúster")}
+                      quality={95}
+                      priority={false}
+                      className="rounded-lg border border-orange-500/30 shadow-lg shadow-orange-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                      onClick={() => openModal("/observability-grafana.png", t("image.observability.grafana"))}
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -95,11 +97,13 @@ export default function Observability() {
                   <div className="relative group">
                     <Image
                       src="/observability-kibana.png"
-                      alt="Logs en la interfaz de Kibana"
+                      alt={t("image.observability.kibana")}
                       width={400}
                       height={250}
-                      className="rounded-lg border border-yellow-500/30 shadow-lg shadow-yellow-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                      onClick={() => openModal("/observability-kibana.png", "Logs en la interfaz de Kibana")}
+                      quality={95}
+                      priority={false}
+                      className="rounded-lg border border-yellow-500/30 shadow-lg shadow-yellow-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                      onClick={() => openModal("/observability-kibana.png", t("image.observability.kibana"))}
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -121,11 +125,13 @@ export default function Observability() {
                   <div className="relative group">
                     <Image
                       src="/observability-linkerd.png"
-                      alt="Topología del service mesh en Linkerd"
+                      alt={t("image.observability.linkerd")}
                       width={400}
                       height={250}
-                      className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                      onClick={() => openModal("/observability-linkerd.png", "Topología del service mesh en Linkerd")}
+                      quality={95}
+                      priority={false}
+                      className="rounded-lg border border-green-500/30 shadow-lg shadow-green-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto"
+                      onClick={() => openModal("/observability-linkerd.png", t("image.observability.linkerd"))}
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -153,14 +159,16 @@ export default function Observability() {
               <div className="grid lg:grid-cols-2 gap-12">
                 <div className="text-center">
                   <h4 className="text-xl font-bold text-pink-400 mb-6">{t("observability.locust.title")}</h4>
-                  <div className="relative group">
+                  <div className="relative group flex justify-center">
                     <Image
                       src="/observability-locust.png"
-                      alt="Gráficas del reporte de Locust"
+                      alt={t("image.observability.locust")}
                       width={500}
                       height={300}
-                      className="rounded-lg border border-pink-500/30 shadow-lg shadow-pink-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                      onClick={() => openModal("/observability-locust.png", "Gráficas del reporte de Locust")}
+                      quality={95}
+                      priority={false}
+                      className="rounded-lg border border-pink-500/30 shadow-lg shadow-pink-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto max-w-md"
+                      onClick={() => openModal("/observability-locust.png", t("image.observability.locust"))}
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
@@ -176,14 +184,16 @@ export default function Observability() {
 
                 <div className="text-center">
                   <h4 className="text-xl font-bold text-red-400 mb-6">{t("observability.chaos.title")}</h4>
-                  <div className="relative group">
+                  <div className="relative group flex justify-center">
                     <Image
                       src="/observability-chaos.png"
-                      alt="Métrica de latencia en Linkerd durante la prueba de caos"
+                      alt={t("image.observability.chaos")}
                       width={500}
                       height={300}
-                      className="rounded-lg border border-red-500/30 shadow-lg shadow-red-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105"
-                      onClick={() => openModal("/observability-chaos.png", "Métrica de latencia en Linkerd durante la prueba de caos")}
+                      quality={95}
+                      priority={false}
+                      className="rounded-lg border border-red-500/30 shadow-lg shadow-red-500/10 cursor-pointer transition-transform duration-300 group-hover:scale-105 w-full h-auto max-w-md"
+                      onClick={() => openModal("/observability-chaos.png", t("image.observability.chaos"))}
                     />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="bg-black/50 backdrop-blur-sm rounded-lg p-2">
